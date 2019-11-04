@@ -26,9 +26,12 @@
  (fn [db _]
    (::domino/db db)))
 
-(defn parse-float [v]
-  (let [value (js/parseFloat v)]
+(defn parse-float [s]
+  (let [value (js/parseFloat s)]
     (when-not (js/isNaN value) value)))
+
+(defn format-number [n]
+  (when n (string/format "%.2f" n)))
 
 (defn input [label path]
   [:div
@@ -43,7 +46,7 @@
    [:h2 "BMI Calculator"]
    [input "height (KG) " [:demographics :height]]
    [input "weight (M) " [:demographics :weight]]
-   [:label "BMI " (string/format "%.2f" @(rf/subscribe [:path [:vitals :bmi]]))]
+   [:label "BMI " (format-number @(rf/subscribe [:path [:vitals :bmi]]))]
    [:hr]
    [:strong "DB state"]
    [:pre (str @(rf/subscribe [:db]))]])
