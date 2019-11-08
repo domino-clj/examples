@@ -9,7 +9,7 @@
 (rf/reg-event-db
  :init
  (fn [_ [_ schema]]
-   (domino/initialize! schema {})))
+   (domino/initialize schema)))
 
 (rf/reg-event-db
  :event
@@ -57,15 +57,15 @@
 (defn init! []
   (rf/dispatch-sync
    [:init
-    {:model   [[:demographics {}
+    {:model   [[:demographics
                 [:height {:id :height}]
                 [:weight {:id :weight}]]
-               [:vitals {}
+               [:vitals
                 [:bmi {:id :bmi}]]]
      :events  [{:inputs  [:height :weight]
                 :outputs [:bmi]
-                :handler (fn [_ [height weight] [bmi]]
-                           (if (and height weight)
-                             [(/ weight (* height height))]
-                             [bmi]))}]}])
+                :handler (fn [_ {:keys [height weight]} {:keys [bmi]}]
+                           {:bmi (if (and height weight)
+                                   (/ weight (* height height))
+                                   bmi)})}]}])
   (mount-root))
