@@ -1,4 +1,4 @@
-(defproject domino-re-frame-example "0.1.0-SNAPSHOT"
+(defproject domino-re-frame-example "0.1.0"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :license {:name "MIT"
@@ -8,7 +8,7 @@
                  [org.clojure/clojurescript "1.10.520"]
                  [reagent "0.8.1"]
                  [re-frame "0.11.0-rc2"]
-                 [domino/core "0.2.0"]]
+                 [domino/core "0.3.0"]]
 
   :plugins [[lein-cljsbuild "1.1.7"]
             [lein-figwheel "0.5.19"]]
