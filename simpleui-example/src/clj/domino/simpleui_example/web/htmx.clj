@@ -19,6 +19,8 @@
   (page
    [:head
     [:meta {:charset "UTF-8"}]
-    [:title "Htmx + Kit"]
-    [:script {:src "https://unpkg.com/htmx.org@1.2.0/dist/htmx.min.js" :defer true}]]
-   [:body (render/walk-attrs body)]))
+    [:title "Htmx + Kit"]]
+   [:body {:hx-ext "ws" :ws-connect "/api/ws"}
+    (render/walk-attrs body)
+    [:script {:src "https://unpkg.com/htmx.org@1.9.9"}]
+    [:script {:src "https://unpkg.com/htmx.org@1.9.9/dist/ext/ws.js"}]]))

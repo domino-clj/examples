@@ -1,4 +1,4 @@
-(ns domino.simpleui-example.web.views.hello
+(ns domino.simpleui-example.web.views.home
     (:require
       [simpleui.core :as simpleui :refer [defcomponent]]
       [domino.simpleui-example.web.htmx :refer [page-htmx]]))
@@ -19,3 +19,4 @@
                :hx-target "#hello"
                :hx-swap "outerHTML"}]
       (hello req "")))))
+

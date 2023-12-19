@@ -3,6 +3,7 @@
     [domino.simpleui-example.web.controllers.health :as health]
     [domino.simpleui-example.web.middleware.exception :as exception]
     [domino.simpleui-example.web.middleware.formats :as formats]
+    [domino.simpleui-example.web.ws :as ws]
     [integrant.core :as ig]
     [reitit.coercion.malli :as malli]
     [reitit.ring.coercion :as coercion]
@@ -38,7 +39,12 @@
            :swagger {:info {:title "domino.simpleui-example API"}}
            :handler (swagger/create-swagger-handler)}}]
    ["/health"
-    {:get health/healthcheck!}]])
+    {:get health/healthcheck!}]
+   ["/ws"
+    (fn [_req]
+      {:undertow/websocket
+       {:on-open (fn [{:keys [channel]}] (ws/add-channel channel))
+        :on-close-message (fn [{:keys [channel]}] (ws/remove-channel channel))}})]])
 
 (derive :reitit.routes/api :reitit/routes)
 
