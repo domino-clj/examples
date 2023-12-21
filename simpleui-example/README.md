@@ -1,5 +1,9 @@
 # domino simpleui-example
 
+Demo of domino used with [SimpleUI](https://simpleui.io).
+
+## Usage
+
 Start a [REPL](#repls) in your editor or terminal of choice.
 
 Start the server with:
