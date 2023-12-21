@@ -5,6 +5,7 @@
 
 (def channels (atom #{}))
 
+;; TODO: group channels by user etc.
 (defn add-channel [channel]
   (swap! channels conj channel))
 

@@ -1,4 +1,4 @@
-# simpleui-example
+# domino simpleui-example
 
 Start a [REPL](#repls) in your editor or terminal of choice.
 

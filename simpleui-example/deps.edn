@@ -22,7 +22,7 @@
            ;; kit Libs
  io.github.kit-clj/kit-core {:mvn/version "1.0.5"}
  io.github.kit-clj/kit-undertow {:mvn/version "1.0.6"}
- domino/core {:mvn/version "0.3.0"}
+ domino/core {:mvn/version "0.4.0-alpha.3"}
  simpleui/simpleui {:git/url "https://github.com/whamtet/simpleui",
                     :git/sha "a107d7a8a69755dae6cd9954992614a86504c257"}}
  :aliases {:build {:deps {io.github.clojure/tools.build {:git/sha "24f2894"

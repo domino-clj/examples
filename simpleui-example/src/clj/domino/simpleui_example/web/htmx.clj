@@ -19,7 +19,8 @@
   (page
    [:head
     [:meta {:charset "UTF-8"}]
-    [:title "Htmx + Kit"]]
+    [:title "Htmx + Kit"]
+    [:link {:rel "stylesheet" :href "/css/site.css"}]]
    [:body {:hx-ext "ws" :ws-connect "/api/ws"}
     (render/walk-attrs body)
     [:script {:src "https://unpkg.com/htmx.org@1.9.9"}]
